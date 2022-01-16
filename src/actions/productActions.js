@@ -22,8 +22,11 @@ import {
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
 } from '../constants/productConstants'
+import { LIVE_URL } from '../utils/url'
 import { logout } from './userActions'
-const purl="https://foodie231.herokuapp.com"
+
+const purl=LIVE_URL
+
 export const listProducts = (keyword = '', pageNumber = '') => async (
   dispatch
 ) => {

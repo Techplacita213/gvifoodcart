@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
+import { LIVE_URL } from '../utils/url'
 
-const purl="https://foodie231.herokuapp.com"
+const purl=LIVE_URL
 
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id

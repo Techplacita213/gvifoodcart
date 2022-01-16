@@ -5,7 +5,8 @@ import {
   CART_SAVE_SHIPPING_ADDRESS,
   CART_SAVE_PAYMENT_METHOD,
 } from '../constants/cartConstants'
-const purl="https://foodie231.herokuapp.com"
+import {LIVE_URL} from "../utils/url"
+const purl=LIVE_URL
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
   const { data } = await axios.get(purl+`/api/products/${id}`)

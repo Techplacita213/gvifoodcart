@@ -8,6 +8,7 @@ import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { listProductDetails, updateProduct } from '../actions/productActions'
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
+import {uploadFile} from '../utils/upload'
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id
@@ -52,29 +53,7 @@ const ProductEditScreen = ({ match, history }) => {
     }
   }, [dispatch, history, productId, product, successUpdate])
 
-  const uploadFileHandler = async (e) => {
-    const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append('image', file)
-    setUploading(true)
-
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-
-      const { data } = await axios.post('/api/upload', formData, config)
-
-      setImage(data)
-      setUploading(false)
-    } catch (error) {
-      console.error(error)
-      setUploading(false)
-    }
-  }
-
+ 
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
@@ -138,7 +117,7 @@ const ProductEditScreen = ({ match, history }) => {
                 id='image-file'
                 label='Choose File'
                 custom
-                onChange={uploadFileHandler}
+                onChange={async (e) => setImage(await uploadFile(e.target.files[0]))}
               ></Form.File>
               {uploading && <Loader />}
             </Form.Group>

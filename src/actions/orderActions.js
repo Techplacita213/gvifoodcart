@@ -20,8 +20,9 @@ import {
   ORDER_DELIVER_SUCCESS,
   ORDER_DELIVER_REQUEST,
 } from '../constants/orderConstants'
+import { LIVE_URL } from '../utils/url'
 import { logout } from './userActions'
-const purl="https://foodie231.herokuapp.com"
+const purl=LIVE_URL
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
     dispatch({

@@ -11,8 +11,12 @@ import {
   createProductReview,
 } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
+import dotenv from 'dotenv'
+import { LIVE_URL } from '../utils/url'
 
-const purl="https://foodie231.herokuapp.com"
+dotenv.config()
+
+const purl=LIVE_URL
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
@@ -73,7 +77,7 @@ const ProductScreen = ({ history, match }) => {
           <Meta title={product.name} />
           <Row>
             <Col md={6}>
-              <Image src={purl+product.image} alt={product.name} fluid />
+              <Image src={product.image} alt={product.name} fluid />
             </Col>
             <Col md={3}>
               <ListGroup variant='flush'>

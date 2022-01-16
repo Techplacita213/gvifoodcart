@@ -7,7 +7,8 @@ import CheckoutSteps from '../components/CheckoutSteps'
 import { createOrder } from '../actions/orderActions'
 import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 import { USER_DETAILS_RESET } from '../constants/userConstants'
-const purl="https://foodie231.herokuapp.com"
+import { LIVE_URL } from '../utils/url'
+const purl=LIVE_URL
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch()

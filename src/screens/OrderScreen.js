@@ -15,8 +15,9 @@ import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
 } from '../constants/orderConstants'
+import { LIVE_URL } from '../utils/url'
 
-const purl="https://foodie231.herokuapp.com"
+const purl=LIVE_URL
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id
